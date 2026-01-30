@@ -1,279 +1,194 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ExamPrep Hub - Developer Portfolio</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --primary: #2563eb;       /* Brand Blue */
-            --dark: #1e293b;          /* Dark Text */
-            --light: #f8fafc;         /* Light Background */
-            --white: #ffffff;
-            --gray: #64748b;
-            --accent: #f59e0b;        /* Gold/Orange for "Pro" feel */
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aashish Singh | Mobile App Developer</title>
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+  <!-- SEO -->
+  <meta name="description" content="Solo mobile app developer specializing in Flutter & Android. I build secure educational apps for government exam preparation." />
+  <meta name="keywords" content="Flutter Developer, Android Developer, Educational Apps, Government Exam Apps" />
+  <meta name="author" content="Aashish Singh" />
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--light);
-            color: var(--dark);
-            line-height: 1.6;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-        /* --- Hero Section --- */
-        header {
-            background: linear-gradient(135deg, var(--primary), #1e40af);
-            color: var(--white);
-            padding: 80px 20px;
-            text-align: center;
-        }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f7f8fa;
+      color: #333;
+      line-height: 1.6;
+    }
 
-        .profile-img {
-            width: 120px;
-            height: 120px;
-            background-color: var(--white);
-            border-radius: 50%;
-            margin: 0 auto 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            color: var(--primary);
-            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-        }
+    header {
+      background: #0f172a;
+      color: #ffffff;
+      padding: 60px 20px;
+      text-align: center;
+    }
 
-        h1 { font-size: 2.5rem; margin-bottom: 10px; }
-        .tagline { font-size: 1.2rem; opacity: 0.9; margin-bottom: 20px; }
+    header h1 {
+      margin: 0 0 10px;
+      font-size: 34px;
+    }
 
-        /* Only Play Store Button in Header now */
-        .header-btn {
-            display: inline-block;
-            background: rgba(255, 255, 255, 0.2);
-            color: var(--white);
-            padding: 10px 20px;
-            border-radius: 50px;
-            text-decoration: none;
-            backdrop-filter: blur(5px);
-            transition: background 0.3s;
-            border: 1px solid rgba(255, 255, 255, 0.4);
-        }
-        .header-btn:hover { background: rgba(255, 255, 255, 0.3); }
+    header p {
+      max-width: 750px;
+      margin: auto;
+      font-size: 18px;
+      opacity: 0.9;
+    }
 
-        /* --- Container --- */
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 40px 20px;
-            flex: 1; /* Pushes footer down */
-        }
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 50px 20px;
+    }
 
-        /* --- Section Titles --- */
-        h2.section-title {
-            text-align: center;
-            font-size: 2rem;
-            margin-bottom: 40px;
-            position: relative;
-            display: inline-block;
-            width: 100%;
-        }
-        h2.section-title::after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 4px;
-            background: var(--primary);
-            margin: 10px auto 0;
-            border-radius: 2px;
-        }
+    section {
+      margin-bottom: 50px;
+    }
 
-        /* --- Featured App Card (Big) --- */
-        .featured-app {
-            background: var(--white);
-            border-radius: 16px;
-            padding: 40px;
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 30px;
-            margin-bottom: 60px;
-        }
+    h2 {
+      font-size: 26px;
+      margin-bottom: 15px;
+      color: #111827;
+    }
 
-        .app-icon-large {
-            width: 120px;
-            height: 120px;
-            background: #e2e8f0; 
-            border-radius: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            color: var(--gray);
-        }
-        
-        .app-details { flex: 1; }
-        .app-tag {
-            background: #dbeafe;
-            color: var(--primary);
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            display: inline-block;
-            margin-bottom: 10px;
-        }
-        .app-title { font-size: 1.8rem; margin-bottom: 10px; color: var(--dark); }
-        .app-desc { color: var(--gray); margin-bottom: 20px; font-size: 1rem; }
-        
-        .play-btn {
-            display: inline-flex;
-            align-items: center;
-            background-color: var(--primary);
-            color: white;
-            padding: 12px 24px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: background 0.3s;
-        }
-        .play-btn:hover { background-color: var(--secondary-color); box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3); }
-        .play-btn i { margin-right: 10px; font-size: 1.2rem; }
+    p {
+      font-size: 16px;
+      margin-bottom: 12px;
+    }
 
-        /* --- Tech Stack Grid --- */
-        .tech-stack {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-            margin-bottom: 60px;
-        }
-        .tech-item {
-            background: var(--white);
-            padding: 15px 25px;
-            border-radius: 8px;
-            font-weight: 600;
-            color: var(--gray);
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
+    ul {
+      list-style: none;
+      padding: 0;
+    }
 
-        /* --- Footer --- */
-        footer {
-            text-align: center;
-            padding: 40px 20px;
-            background: var(--white);
-            border-top: 1px solid #e2e8f0;
-            color: var(--gray);
-        }
-        .legal-links {
-            margin-top: 15px;
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-        .legal-links a { 
-            color: var(--primary); 
-            text-decoration: none; 
-            font-size: 0.95rem;
-            font-weight: 500;
-        }
-        .legal-links a:hover { text-decoration: underline; }
+    ul li {
+      background: #ffffff;
+      padding: 12px 16px;
+      margin-bottom: 10px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
 
-        @media (max-width: 768px) {
-            .featured-app { text-align: center; justify-content: center; }
-            .app-details { width: 100%; }
-        }
-    </style>
+    .badges span {
+      display: inline-block;
+      background: #e5e7eb;
+      color: #111;
+      padding: 8px 12px;
+      border-radius: 20px;
+      margin: 6px 6px 0 0;
+      font-size: 14px;
+    }
+
+    .projects a {
+      color: #2563eb;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .projects a:hover {
+      text-decoration: underline;
+    }
+
+    .contact a {
+      color: #2563eb;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    footer {
+      background: #0f172a;
+      color: #cbd5f5;
+      text-align: center;
+      padding: 25px 15px;
+      font-size: 14px;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 28px;
+      }
+      header p {
+        font-size: 16px;
+      }
+    }
+  </style>
 </head>
 <body>
 
-    <header>
-        <div class="profile-img">
-            <i class="fa-solid fa-code"></i>
-        </div>
-        <h1>ExamPrep Hub</h1>
-        <p class="tagline">Flutter Developer | Android Developer | Building Educational Solutions</p>
-        
-        <a href="https://play.google.com/store/apps/dev?id=8390706324979782677" target="_blank" class="header-btn">
-            <i class="fa-brands fa-google-play"></i> Visit Developer Profile
-        </a>
-    </header>
-
-    <div class="container">
-        
-        <div style="text-align: center; max-width: 700px; margin: 0 auto 60px;">
-            <p style="font-size: 1.1rem; color: var(--gray);">
-                I am a solo mobile app developer specializing in <strong>Flutter & Android</strong>. 
-                I design and develop educational applications that are fast, secure, and easy to use, helping students prepare effectively for government exams.
-            </p>
-            <p>
-      I also develop and publish applications for both
-      <strong>Google Play Store</strong> and
-      <strong>Apple App Store</strong>, handling the complete app release process,
-      including testing, compliance, and store guidelines.
-      My focus is on delivering high-quality, reliable, and user-friendly
-      learning experiences across platforms.
+  <!-- HERO -->
+  <header>
+    <h1>Aashish Singh</h1>
+    <p>
+      Solo Mobile App Developer specializing in Flutter & Android.
+      I build fast, secure educational apps that help students prepare
+      for government exams.
     </p>
-        </div>
+  </header>
 
-        <h2 class="section-title">Featured App</h2>
-        
-        <div class="featured-app">
-            <div class="app-icon-large">
-                <i class="fa-solid fa-book-open"></i>
-            </div>
-            
-            <div class="app-details">
-                <span class="app-tag">Education</span> <span class="app-tag">4.5 ★ Rating</span>
-                <h3 class="app-title">Hindi PYQs Bank</h3>
-                <p class="app-desc">
-                    A comprehensive question bank for students. Features include previous year questions, mock tests, and bilingual support (Hindi/English). 
-                    Built with Flutter and optimized for performance.
-                </p>
-                
-                <a href="https://play.google.com/store/apps/details?id=com.mcq.hindiobjective" target="_blank" class="play-btn">
-                    <i class="fa-brands fa-google-play"></i> Download on Play Store
-                </a>
-            </div>
-        </div>
+  <main class="container">
 
-        <h2 class="section-title">Tech Stack</h2>
-        <div class="tech-stack">
-            <div class="tech-item"><i class="fa-brands fa-android" style="color: #3DDC84;"></i> Android</div>
-            <div class="tech-item"><i class="fa-brands fa-flutter" style="color: #02569B;"></i> Flutter</div>
-            <div class="tech-item"><i class="fa-solid fa-fire" style="color: #FFA611;"></i> Firebase</div>
-            <div class="tech-item"><i class="fa-solid fa-database" style="color: #3ECF8E;"></i> Supabase</div>
-            <div class="tech-item"><i class="fa-solid fa-credit-card" style="color: #3395FF;"></i> Razorpay</div>
-        </div>
+    <!-- ABOUT -->
+    <section>
+      <h2>About Me</h2>
+      <p>
+        I am a solo mobile app developer specializing in Flutter and Android.
+        I design and develop educational applications that are fast, secure,
+        and easy to use, helping students prepare effectively for government exams.
+      </p>
+      <p>
+        I develop and publish applications for both <strong>Google Play Store</strong>
+        and <strong>Apple App Store</strong>, managing the complete app lifecycle
+        including development, testing, compliance, payments, and analytics.
+      </p>
+    </section>
 
-        <div style="text-align: center; margin-bottom: 40px;">
-            <a href="https://play.google.com/store/apps/dev?id=8390706324979782677" target="_blank" 
-               style="color: var(--primary); font-weight: bold; text-decoration: none; font-size: 1.1rem; border: 2px solid var(--primary); padding: 10px 25px; border-radius: 50px; transition: 0.3s;">
-                View All Apps on Google Play <i class="fa-solid fa-arrow-right"></i>
-            </a>
-        </div>
+    <!-- SKILLS -->
+    <section>
+      <h2>Skills & Technologies</h2>
+      <div class="badges">
+        <span>Flutter & Dart</span>
+        <span>Android (Kotlin / Java)</span>
+        <span>Firebase (Auth, Firestore, Analytics)</span>
+        <span>Supabase</span>
+        <span>Razorpay</span>
+        <span>In-App Purchases</span>
+        <span>App Store & Play Store Publishing</span>
+        <span>Privacy & Policy Compliance</span>
+      </div>
+    </section>
 
-    </div>
+    <!-- PROJECTS -->
+    <section class="projects">
+      <h2>Projects</h2>
+      <ul>
+        <li>
+          <strong>Educational Exam Preparation Apps</strong><br/>
+          Practice questions, PYQs, progress tracking, premium features,
+          ad-free experience, and secure payments.<br/>
+          <a href="https://play.google.com/store" target="_blank">View on Google Play</a>
+        </li>
+      </ul>
+    </section>
 
-    <footer>
-        <p>&copy; 2026 ExamPrep Hub. Built by asingh532.</p>
-        
-        <div class="legal-links">
-            <a href="https://asingh532.github.io/portfolio/privacy-policy.html">Privacy Policy</a>
-            <span style="color: #cbd5e1;">|</span>
-            <a href="https://asingh532.github.io/portfolio/terms-and-conditions.html">Terms & Conditions</a>
-        </div>
-    </footer>
+    <!-- CONTACT -->
+    <section class="contact">
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:examprephub.apps@gmail.com">examprephub.apps@gmail.com</a></p>
+      <p>GitHub: <a href="https://github.com/asingh532" target="_blank">github.com/asingh532</a></p>
+    </section>
+
+  </main>
+
+  <footer>
+    © 2026 Aashish Singh • Built with care for students and learning
+  </footer>
 
 </body>
 </html>
