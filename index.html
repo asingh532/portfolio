@@ -1,48 +1,257 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>My Apps Portfolio</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
-    body { font-family: Arial; margin: 20px; background: #f9f9f9; }
-    .app { background: #fff; padding: 15px; margin-bottom: 15px; border-radius: 8px; }
-    .app h3 { margin: 0; }
-    .footer { margin-top: 30px; font-size: 14px; }
-    a { color: #1a73e8; text-decoration: none; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ExamPrep Hub - Developer Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2563eb;       /* Brand Blue */
+            --dark: #1e293b;          /* Dark Text */
+            --light: #f8fafc;         /* Light Background */
+            --white: #ffffff;
+            --gray: #64748b;
+            --accent: #f59e0b;        /* Gold/Orange for "Pro" feel */
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        /* --- Hero Section --- */
+        header {
+            background: linear-gradient(135deg, var(--primary), #1e40af);
+            color: var(--white);
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            background-color: var(--white);
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--primary);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+        }
+
+        h1 { font-size: 2.5rem; margin-bottom: 10px; }
+        .tagline { font-size: 1.2rem; opacity: 0.9; margin-bottom: 30px; }
+
+        .social-links a {
+            color: var(--white);
+            font-size: 1.5rem;
+            margin: 0 10px;
+            transition: transform 0.3s;
+            display: inline-block;
+        }
+        .social-links a:hover { transform: translateY(-3px); color: var(--accent); }
+
+        /* --- Container --- */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* --- Section Titles --- */
+        h2.section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 40px;
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+        h2.section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--primary);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        /* --- Featured App Card (Big) --- */
+        .featured-app {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .app-icon-large {
+            width: 120px;
+            height: 120px;
+            background: #e2e8f0; /* Placeholder color */
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--gray);
+        }
+        
+        /* If you have an image, remove .app-icon-large css above and use this: */
+        .app-icon-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 24px;
+            object-fit: cover;
+        }
+
+        .app-details { flex: 1; }
+        .app-tag {
+            background: #dbeafe;
+            color: var(--primary);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+        .app-title { font-size: 1.8rem; margin-bottom: 10px; color: var(--dark); }
+        .app-desc { color: var(--gray); margin-bottom: 20px; font-size: 1rem; }
+        
+        .play-btn {
+            display: inline-flex;
+            align-items: center;
+            background-color: var(--primary);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+        .play-btn:hover { background-color: var(--secondary-color); box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3); }
+        .play-btn i { margin-right: 10px; font-size: 1.2rem; }
+
+        /* --- Tech Stack Grid --- */
+        .tech-stack {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 60px;
+        }
+        .tech-item {
+            background: var(--white);
+            padding: 15px 25px;
+            border-radius: 8px;
+            font-weight: 600;
+            color: var(--gray);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* --- Footer --- */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            background: var(--white);
+            border-top: 1px solid #e2e8f0;
+            color: var(--gray);
+        }
+        .footer-links a { color: var(--primary); text-decoration: none; margin: 0 10px; }
+
+        @media (max-width: 768px) {
+            .featured-app { text-align: center; justify-content: center; }
+            .app-details { width: 100%; }
+        }
+    </style>
 </head>
 <body>
 
-<h1>👨‍💻 Independent App Developer</h1>
-<p>I build simple, useful, and performance-focused Android apps.</p>
+    <header>
+        <div class="profile-img">
+            <i class="fa-solid fa-code"></i>
+        </div>
+        <h1>ExamPrep Hub</h1>
+        <p class="tagline">Flutter Developer | Building Educational Solutions</p>
+        
+        <div class="social-links">
+            <a href="https://github.com/asingh532" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
+            <a href="mailto:examprephub.apps@gmail.com" title="Email"><i class="fa-solid fa-envelope"></i></a>
+            <a href="https://play.google.com/store/apps/dev?id=8390706324979782677" target="_blank" title="Play Store"><i class="fa-brands fa-google-play"></i></a>
+        </div>
+    </header>
 
-<hr>
+    <div class="container">
+        
+        <div style="text-align: center; max-width: 700px; margin: 0 auto 60px;">
+            <p style="font-size: 1.1rem; color: var(--gray);">
+                I am a solo mobile app developer specializing in <strong>Flutter & Android</strong>. 
+                I build robust educational applications that help students prepare for government exams using technologies like Firebase, Supabase, and Razorpay.
+            </p>
+        </div>
 
-<h2>📱 My Apps</h2>
+        <h2 class="section-title">Featured App</h2>
+        
+        <div class="featured-app">
+            <div class="app-icon-large">
+                <i class="fa-solid fa-book-open"></i>
+            </div>
+            
+            <div class="app-details">
+                <span class="app-tag">Education</span> <span class="app-tag">4.5 ★ Rating</span>
+                <h3 class="app-title">Hindi PYQs Bank</h3>
+                <p class="app-desc">
+                    A comprehensive question bank for students. Features include previous year questions, mock tests, and bilingual support (Hindi/English). 
+                    Built with Flutter and optimized for performance.
+                </p>
+                
+                <a href="https://play.google.com/store/apps/details?id=com.mcq.hindiobjective" target="_blank" class="play-btn">
+                    <i class="fa-brands fa-google-play"></i> Download on Play Store
+                </a>
+            </div>
+        </div>
 
-<div class="app">
-  <h3>App Name 1</h3>
-  <p>Short description of what this app does.</p>
-  <a href="https://play.google.com/store/apps/details?id=your.app.id" target="_blank">
-    View on Google Play
-  </a>
-</div>
+        <h2 class="section-title">Tech Stack</h2>
+        <div class="tech-stack">
+            <div class="tech-item"><i class="fa-brands fa-android" style="color: #3DDC84;"></i> Android</div>
+            <div class="tech-item"><i class="fa-brands fa-flutter" style="color: #02569B;"></i> Flutter</div>
+            <div class="tech-item"><i class="fa-solid fa-fire" style="color: #FFA611;"></i> Firebase</div>
+            <div class="tech-item"><i class="fa-solid fa-database" style="color: #3ECF8E;"></i> Supabase</div>
+            <div class="tech-item"><i class="fa-solid fa-credit-card" style="color: #3395FF;"></i> Razorpay</div>
+        </div>
 
-<div class="app">
-  <h3>App Name 2</h3>
-  <p>Another app description here.</p>
-  <a href="#">View on Google Play</a>
-</div>
+        <div style="text-align: center; margin-bottom: 40px;">
+            <a href="https://play.google.com/store/apps/dev?id=8390706324979782677" target="_blank" 
+               style="color: var(--primary); font-weight: bold; text-decoration: none; font-size: 1.1rem; border: 2px solid var(--primary); padding: 10px 25px; border-radius: 50px; transition: 0.3s;">
+                View All Apps on Google Play <i class="fa-solid fa-arrow-right"></i>
+            </a>
+        </div>
 
-<hr>
+    </div>
 
-<div class="footer">
-  <p>📧 Contact: your-email@gmail.com</p>
-  <p>
-    <a href="privacy-policy.html">Privacy Policy</a> |
-    <a href="terms-and-conditions.html">Terms & Conditions</a>
-  </p>
-</div>
+    <footer>
+        <p>&copy; 2026 ExamPrep Hub. Built with ❤️ by asingh532.</p>
+        <div class="footer-links" style="margin-top: 10px;">
+            <a href="privacy.html">Privacy Policy</a> | 
+            <a href="terms.html">Terms & Conditions</a>
+        </div>
+    </footer>
 
 </body>
 </html>
